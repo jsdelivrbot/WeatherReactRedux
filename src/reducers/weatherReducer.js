@@ -6,16 +6,16 @@ const weatherReducer = (state = {name: 'skikda', daydata: '', weekdata: ''}, act
                 name: action.payload
             }
             break;
-        case "SEARCH_DAY_WEATHER":
-            state = {
-                ...state,
-                daydata: action.payload
-            }
-            break;
-        case "SEARCH_WEEK_WEATHER":
+        case "WEEK_SEARCH_SUCCESS":
             state = {
                 ...state,
                 weekdata: action.payload
+            }
+            break;
+        case "DAY_SEARCH_SUCCESS":
+            state = {
+                ...state,
+                daydata: action.payload
             }
             break;
         default:

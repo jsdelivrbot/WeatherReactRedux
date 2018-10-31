@@ -1,5 +1,9 @@
 import {createStore, applyMiddleware} from 'redux';
 import weatherReducer from './reducers/weatherReducer';
 import ReduxPromise from 'redux-promise';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas/rootSaga';
 
-export default createStore(weatherReducer, applyMiddleware(ReduxPromise));
+const sagaMiddleware = createSagaMiddleware();
+export default createStore(weatherReducer, applyMiddleware(ReduxPromise, sagaMiddleware));
+sagaMiddleware.run(rootSaga);
