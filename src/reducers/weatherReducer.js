@@ -18,6 +18,13 @@ const weatherReducer = (state = {name: 'skikda', daydata: '', weekdata: ''}, act
                 daydata: action.payload
             }
             break;
+        case "SEARCH_FAILED":
+            state = {
+                ...state,
+                daydata: action.payload,
+                weekdata: action.payload
+            }
+            break;
         default:
             return state;
     }

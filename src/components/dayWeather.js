@@ -6,10 +6,13 @@ export const DayWeather = (props) => {
     let country = day_data.sys;
     let weather = day_data.weather;
     let temp = day_data.main;
+    const message = 'Make a search to see results!';
     
     // initial value of component
-    if(!country || !weather || !temp){
-        return <h1>Make a search to see results!</h1>;
+    if(!day_data){
+        return <h1> {message} </h1>;
+    }else if (!country || !weather || !temp) {
+        return <h5 style={{color: '#ff0000'}} > {`ERROR : ${day_data}, Please check the city name and try again.`} </h5>;
     }
 
     let imgSrc = "https://openweathermap.org/img/w/" +weather[0].icon +".png";

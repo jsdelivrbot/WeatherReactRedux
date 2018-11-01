@@ -5,9 +5,9 @@ import axios from 'axios';
 export function* searchDay(action){
     try{
         const getWeather = yield call(axios.get, action.payload.urlDay);
-        yield put({ type:"DAY_SEARCH_SUCCESS", payload: getWeather.data });
+        yield put({ type:'DAY_SEARCH_SUCCESS', payload: getWeather.data });
     } catch (err){
-        console.log('error occured !!', err);
+        yield put({ type:'SEARCH_FAILED', payload: err.message });
     }
 }
 
@@ -16,7 +16,7 @@ export function* searchWeek(action){
         const getWeather = yield call(axios.get, action.payload.urlWeek);
         yield put({type: "WEEK_SEARCH_SUCCESS", payload: getWeather.data});
     } catch (err){
-        console.log('error occured !!', err);
+        yield put({ type:'SEARCH_FAILED', payload: err.message });
     }
 }
 
