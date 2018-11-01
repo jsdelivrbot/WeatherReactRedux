@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {SearchBar} from '../components/searchBar';
 import {DayWeather} from '../components/dayWeather';
 import {WeekWeather} from '../components/weekWeather';
-import {changingText, searchDayWeather, searchWeekWeather} from '../actions/searchAction';
+import {changingText, searchWeather } from '../actions/searchAction';
 
 
 class App extends Component {
@@ -14,8 +14,7 @@ class App extends Component {
         <SearchBar 
           name={this.props.name}
           changingText={(event) => this.props.changingText(event)}
-          searchDayWeather={this.props.searchDayWeather}
-          searchWeekWeather={this.props.searchWeekWeather} />
+          searchWeather={this.props.searchWeather}/>
         <div style={{display: 'flex', justifyContent: 'center'}}>
           <div style={{paddingRight: 20 +'px'}}>
             <DayWeather name={this.props.daydata}/>
@@ -40,12 +39,9 @@ const mapDispatchToProps = (dispatch) => {
     changingText: (event) => {
       dispatch(changingText(event));
     },
-    searchDayWeather: (term) => {
-      dispatch(searchDayWeather(term));
+    searchWeather: (term) => {
+      dispatch(searchWeather(term));
     },
-    searchWeekWeather: (term) => {
-      dispatch(searchWeekWeather(term));
-    }
   };
 };
 

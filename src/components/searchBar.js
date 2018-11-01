@@ -9,8 +9,7 @@ export const SearchBar = (props) => {
                 <span className="input-group-btn">
                     <button 
                         onClick={() => {
-                            props.searchDayWeather(props.name);
-                            props.searchWeekWeather(props.name);
+                            props.searchWeather(props.name);
                         }} 
                         className="btn btn-primary">Change</button>
                 </span>

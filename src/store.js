@@ -5,5 +5,8 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
-export default createStore(weatherReducer, applyMiddleware(ReduxPromise, sagaMiddleware));
+export default createStore(
+    weatherReducer, 
+    applyMiddleware(ReduxPromise, sagaMiddleware),
+);
 sagaMiddleware.run(rootSaga);
